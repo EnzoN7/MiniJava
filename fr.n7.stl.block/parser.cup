@@ -162,9 +162,9 @@ Elements ::= Main:main
 			elements.add((Elements) main);
 			RESULT = elements;
 		:}
-		| Interface:interface Elements:elements
+		| Interface:iinterface Elements:elements
 		{:
-			elements.add(interface);
+			elements.add(iinterface);
 			RESULT = elements;
 		:}
 		| Class:newClass Elements:elements

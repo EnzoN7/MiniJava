@@ -8,10 +8,16 @@ package fr.n7.stl.block;
 import java_cup.runtime.*;
 import fr.n7.stl.block.Lexer;
 import java.io.IOException;
+import java.security.Signature;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.*;
+
+import javax.lang.model.util.Elements;
+
 import fr.n7.stl.block.ast.*;
+import fr.n7.stl.block.ast.classelement.Attribute;
+import fr.n7.stl.block.ast.classelement.ClassElement;
 import fr.n7.stl.block.ast.expression.*;
 import fr.n7.stl.block.ast.expression.accessible.*;
 import fr.n7.stl.block.ast.expression.allocation.*;
@@ -791,15 +797,15 @@ class CUP$Parser$actions {
           case 3: // Elements ::= Interface Elements 
             {
               Object RESULT =null;
-		Location interfacexleft = ((java_cup.runtime.ComplexSymbolFactory.ComplexSymbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)).xleft;
-		Location interfacexright = ((java_cup.runtime.ComplexSymbolFactory.ComplexSymbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)).xright;
-		Object interface = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-1)).value;
+		Location iinterfacexleft = ((java_cup.runtime.ComplexSymbolFactory.ComplexSymbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)).xleft;
+		Location iinterfacexright = ((java_cup.runtime.ComplexSymbolFactory.ComplexSymbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)).xright;
+		Object iinterface = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-1)).value;
 		Location elementsxleft = ((java_cup.runtime.ComplexSymbolFactory.ComplexSymbol)CUP$Parser$stack.peek()).xleft;
 		Location elementsxright = ((java_cup.runtime.ComplexSymbolFactory.ComplexSymbol)CUP$Parser$stack.peek()).xright;
 		Object elements = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
 		//@@CUPDBG5
 
-			elements.add(interface);
+			((Vector) elements).add(iinterface);
 			RESULT = elements;
 		
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("Elements",16, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
@@ -818,7 +824,7 @@ class CUP$Parser$actions {
 		Object elements = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
 		//@@CUPDBG6
 
-			elements.add(newClass);
+			((Vector) elements).add(newClass);
 			RESULT = elements;
 		
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("Elements",16, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
