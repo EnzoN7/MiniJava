@@ -1,0 +1,9 @@
+en gardant les analyses de getcode et tam machin, 10 et 16 et peut etre plus haut ne fonctionnent pas
+
+sans ces deux la, 65 est sense fonctionner mais pantel a dit de skip les structs
+
+==> pb avec les new en java
+
+66 à 73 full erreurs car full structs mais pantel a dit de skip les structs
+
+91, 95, 98, 99, 100, 101, 102, 103 passent pas pour causes de new notamment et boolean n'existe pas en C
