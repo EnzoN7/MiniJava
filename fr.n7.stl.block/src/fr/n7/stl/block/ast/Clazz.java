@@ -3,6 +3,7 @@ package fr.n7.stl.block.ast;
 import java.util.List;
 
 import fr.n7.stl.block.ast.instruction.Instruction;
+import fr.n7.stl.block.Elements;
 import fr.n7.stl.block.ast.classelement.*;
 import fr.n7.stl.block.ast.instruction.Return;
 import fr.n7.stl.block.ast.scope.Declaration;
@@ -10,7 +11,7 @@ import fr.n7.stl.block.ast.scope.HierarchicalScope;
 import fr.n7.stl.block.ast.scope.SymbolTable;
 import fr.n7.stl.block.ast.type.Type;
 
-public class Clazz {
+public class Clazz implements Elements {
 	
 	protected List<ClassElement> classElements;
 	

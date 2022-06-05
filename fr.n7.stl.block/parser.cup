@@ -13,6 +13,7 @@ import java.util.*;
 
 // Elements du métamodèle pour la construction de l'arbre abstrait
 import fr.n7.stl.block.ast.*;
+import fr.n7.stl.block.ast.classelement.*;
 import fr.n7.stl.block.ast.expression.*;
 import fr.n7.stl.block.ast.expression.accessible.*;
 import fr.n7.stl.block.ast.expression.allocation.*;
@@ -81,7 +82,8 @@ non terminal Block						Program;
 /* début modification miniJava */
 non terminal Block						Block; 
 /* fin modification miniJava */
-non terminal List<Instruction>			Instructions; 
+non terminal List<Instruction>			Instructions;
+non terminal LinkedList<Elements>       Elements;
 non terminal Instruction				Instruction;
 non terminal Instruction				Declaration;
 non terminal List<Expression>			Expressions;
@@ -94,14 +96,23 @@ non terminal Pair<String,PartialType>	Identifiant;
 non terminal Type						Type, Atomique;
 non terminal Expression 				Expression;
 non terminal AssignableExpression		Affectable;
+non terminal Elements                   Interface, Main;
+non terminal Clazz                      Class;
+non terminal Attribute 					Attribute;
+non terminal ClassAccess                Instance;
+non terminal Method                     Method;
+non terminal Constructor                Constructor;
+non terminal ClassElement               ClassElement;
+non terminal LinkedList<ClassElement>   ClassElements;
+non terminal InterfaceElement           InterfaceElement;
+non terminal List<InterfaceElement>     InterfaceElements;
+non terminal Signature                  Signature;      
 /* miniJava */
-non terminal							Elements, Main, Class, Interface;
 non terminal							Generics, TypeParameter, TypeParameters, Constraints;
 non terminal							SingleInherits, MultipleInherits, Implements;
-non terminal							ClassElements, InterfaceElements, Instances;
-non terminal							Instance, ClassElement, InterfaceElement;
-non terminal							 Attribute, Signature, Method, Constructor, ConstructorPrelude;
-non terminal							AccessRight, ElementNature;
+non terminal							Instances;
+non terminal							ConstructorPrelude;
+non terminal							ElementNature;
 
 /* Associativité et Priorité relative des opérateurs (du moins prioritaire au plus prioritaire) */
 /* Opérateur le moins prioritiaire */
@@ -203,7 +214,7 @@ Main ::= UL_Public UL_Classe UL_Classe_Principale
 			UL_Public UL_De_Classe UL_Type_Vide UL_Methode_Principale 
 			UL_Parenthese_Ouvrante Parameters:parameters UL_Parenthese_Fermante Block:body UL_Accolade_Fermante
 		{:
-			RESULT = new Main(new FunctionDeclaration("main", AtomicType.VoidType, parameters, body);
+			RESULT = new Main(new FunctionDeclaration("main", AtomicType.VoidType, parameters, body));
 		:}
 		;
 		
@@ -352,7 +363,7 @@ ClassElement ::=
 InterfaceElement ::=
 		Signature:entete UL_Point_Virgule
 		{:
-			RESULT = entete
+			RESULT = entete;
 		:}
 		;
 
