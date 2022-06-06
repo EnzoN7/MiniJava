@@ -5,6 +5,7 @@ package fr.n7.stl.block.ast.scope;
 
 import fr.n7.stl.block.ast.classElement.MethodDeclaration;
 import fr.n7.stl.block.ast.element.ClassDeclaration;
+import fr.n7.stl.block.ast.element.InterfaceDeclaration;
 import fr.n7.stl.block.ast.instruction.declaration.FunctionDeclaration;
 import fr.n7.stl.block.ast.interfaceElement.InterfaceElement;
 
@@ -27,9 +28,11 @@ public class SymbolTable implements HierarchicalScope<Declaration> {
 	public static FunctionDeclaration functionDeclaration = null;
 	public static MethodDeclaration methodDeclaration = null;
 	public static ClassDeclaration classDeclaration = null;
-	public static InterfaceElement interfaceElement = null;
-	
 	public static List<ClassDeclaration> classesDeclaration = new ArrayList<>();
+
+	public static InterfaceElement interfaceElement = null;
+	public static InterfaceDeclaration interfaceDeclaration = null;
+	public static List<InterfaceDeclaration> interfacesDeclaration = new ArrayList<>();
 
 	public SymbolTable() {
 		this(null);

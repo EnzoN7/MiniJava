@@ -5,8 +5,8 @@ class Driver {
 	public static void main(String[] args) throws Exception {
 		Parser parser = null;
 		if (args.length == 0) {
-			parser = new Parser( "tests/test00.mjava" );
-			//parser = new Parser( "tests/test4.java" );
+			//parser = new Parser( "tests/test01.mjava" );
+			parser = new Parser( "tests/test4.java" );
 			// parser = new Parser( "tests/test02.mjava" );
 			parser.parse();
 		} else {
